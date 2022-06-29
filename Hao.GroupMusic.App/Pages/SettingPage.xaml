@@ -8,6 +8,7 @@
             <Color x:Key="PrimaryColor">#1D7373</Color>
             <Color x:Key="ButtonColor">#009999</Color>
             <Color x:Key="SwitchOnColor">#FFCC33</Color>
+            <x:Double x:Key="ItemHeight">45</x:Double>
             <Style x:Key="TopBarContainerStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{x:StaticResource PrimaryColor}" />
                 <Setter Property="HeightRequest" Value="50" />
@@ -43,7 +44,6 @@
                 <Setter Property="Margin" Value="15,10,0,0" />
                 <Setter Property="TextColor" Value="Silver" />
             </Style>
-            <x:Double x:Key="ItemHeight">45</x:Double>
             <Style x:Key="ItemNameStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="HorizontalOptions" Value="Start" />

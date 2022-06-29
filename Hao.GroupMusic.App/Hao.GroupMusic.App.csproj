@@ -48,9 +48,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\background\bg_0.png" />
+	  <None Remove="Resources\Images\bg_1.png" />
+	  <None Remove="Resources\Images\bg_2.png" />
+	  <None Remove="Resources\Images\bg_3.png" />
+	  <None Remove="Resources\Images\bg_4.png" />
+	  <None Remove="Resources\Images\bg_5.png" />
 	  <None Remove="Resources\Images\clear_1.png" />
 	  <None Remove="Resources\Images\clear_2.png" />
 	  <None Remove="Resources\Images\disk_1.png" />
+	  <None Remove="Resources\Images\media_download.png" />
+	  <None Remove="Resources\Images\media_edit.png" />
+	  <None Remove="Resources\Images\media_mute.png" />
+	  <None Remove="Resources\Images\media_next.png" />
+	  <None Remove="Resources\Images\media_play.png" />
+	  <None Remove="Resources\Images\media_playlist.png" />
+	  <None Remove="Resources\Images\media_previous.png" />
+	  <None Remove="Resources\Images\media_repeat.png" />
+	  <None Remove="Resources\Images\media_repeatone.png" />
+	  <None Remove="Resources\Images\media_shuffle.png" />
+	  <None Remove="Resources\Images\media_stop.png" />
+	  <None Remove="Resources\Images\media_volum.png" />
+	  <None Remove="Resources\Images\media_volum_down.png" />
+	  <None Remove="Resources\Images\media_volum_up.png" />
+	  <None Remove="Resources\Images\operate_back.png" />
+	  <None Remove="Resources\Images\operate_favorite.png" />
 	  <None Remove="Resources\Images\password_1.png" />
 	  <None Remove="Resources\Images\server_1.png" />
 	  <None Remove="Resources\Images\setting\setting_folder.png" />
@@ -62,6 +84,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Include="Resources\Images\background\bg_0.png" />
+	  <MauiImage Include="Resources\Images\background\bg_1.png" />
+	  <MauiImage Include="Resources\Images\background\bg_2.png" />
+	  <MauiImage Include="Resources\Images\background\bg_3.png" />
+	  <MauiImage Include="Resources\Images\background\bg_4.png" />
+	  <MauiImage Include="Resources\Images\background\bg_5.png" />
+	  <MauiImage Include="Resources\Images\media\media_download.png" />
+	  <MauiImage Include="Resources\Images\media\media_edit.png" />
+	  <MauiImage Include="Resources\Images\media\media_mute.png" />
+	  <MauiImage Include="Resources\Images\media\media_next.png" />
+	  <MauiImage Include="Resources\Images\media\media_play.png" />
+	  <MauiImage Include="Resources\Images\media\media_playlist.png" />
+	  <MauiImage Include="Resources\Images\media\media_previous.png" />
+	  <MauiImage Include="Resources\Images\media\media_repeat.png" />
+	  <MauiImage Include="Resources\Images\media\media_repeatone.png" />
+	  <MauiImage Include="Resources\Images\media\media_shuffle.png" />
+	  <MauiImage Include="Resources\Images\media\media_stop.png" />
+	  <MauiImage Include="Resources\Images\media\media_volum.png" />
+	  <MauiImage Include="Resources\Images\media\media_volum_down.png" />
+	  <MauiImage Include="Resources\Images\media\media_volum_up.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_back.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_favorite.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_logout.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_off.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_library.png" />

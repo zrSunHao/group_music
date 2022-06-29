@@ -3,10 +3,173 @@
     x:Class="Hao.GroupMusic.App.Pages.PlayerPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="player"
-            VerticalOptions="Center" />
-    </StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="OperateContainerHeight">40</x:Double>
+            <x:Double x:Key="OperateIconHeight">20</x:Double>
+            <Style x:Key="TopBarBgStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+            <Style x:Key="TopBarTextStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style x:Key="LyricBgStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+            <Style x:Key="PlayerBarButtonStyle" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="Padding" Value="{x:OnPlatform 13, Android=5}" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="OperateContainerStyle" TargetType="Border">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.7" />
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="HeightRequest" Value="{x:StaticResource OperateContainerHeight}" />
+                <Setter Property="WidthRequest" Value="{x:StaticResource OperateContainerHeight}" />
+                <Setter Property="StrokeShape">
+                    <Setter.Value>
+                        <RoundRectangle CornerRadius="20,20,20,20" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="OperateIconStyle" TargetType="Image">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="{x:StaticResource OperateIconHeight}" />
+                <Setter Property="WidthRequest" Value="{x:StaticResource OperateIconHeight}" />
+            </Style>
+            <Style x:Key="VolumTextStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+            <Style x:Key="BottomBarBgStyle" TargetType="Border">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="*,80">
+        <Grid RowDefinitions="60,*,50,20,35">
+            <Image
+                Grid.RowSpan="5"
+                Aspect="AspectFill"
+                Source="bg_0.png" />
+            <Frame
+                Grid.Row="0"
+                Grid.RowSpan="5"
+                Style="{x:StaticResource LyricBgStyle}" />
+            <Grid Grid.Row="0" ColumnDefinitions="60,*,60,60">
+                <Frame Grid.ColumnSpan="4" Style="{x:StaticResource TopBarBgStyle}" />
+                <ImageButton
+                    Grid.Column="0"
+                    Source="operate_back.png"
+                    Style="{x:StaticResource PlayerBarButtonStyle}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{x:StaticResource TopBarTextStyle}"
+                    Text="突然的自我 - 伍佰" />
+                <ImageButton
+                    Grid.Column="2"
+                    Source="media_edit.png"
+                    Style="{x:StaticResource PlayerBarButtonStyle}" />
+                <ImageButton
+                    Grid.Column="3"
+                    Source="media_download.png"
+                    Style="{x:StaticResource PlayerBarButtonStyle}" />
+            </Grid>
+            <Grid Grid.Row="1" />
+            <Grid Grid.Row="2" ColumnDefinitions="50,50,50,*,50,50">
+                <Border Grid.Column="0" Style="{x:StaticResource OperateContainerStyle}" />
+                <Image
+                    Grid.Column="0"
+                    Source="media_volum_down.png"
+                    Style="{x:StaticResource OperateIconStyle}" />
+                <Border Grid.Column="1" Style="{x:StaticResource OperateContainerStyle}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{x:StaticResource VolumTextStyle}"
+                    Text="35%" />
+                <Border Grid.Column="2" Style="{x:StaticResource OperateContainerStyle}" />
+                <Image
+                    Grid.Column="2"
+                    Source="media_volum_up.png"
+                    Style="{x:StaticResource OperateIconStyle}" />
+                <Border Grid.Column="4" Style="{x:StaticResource OperateContainerStyle}" />
+                <Image
+                    Grid.Column="4"
+                    Source="media_playlist.png"
+                    Style="{x:StaticResource OperateIconStyle}" />
+                <Border Grid.Column="5" Style="{x:StaticResource OperateContainerStyle}" />
+                <Image
+                    Grid.Column="5"
+                    Source="operate_favorite.png"
+                    Style="{x:StaticResource OperateIconStyle}" />
+            </Grid>
+            <Grid
+                Grid.Row="3"
+                Padding="0"
+                ColumnDefinitions="*,*">
+                <Label
+                    Margin="10,0,0,0"
+                    HorizontalOptions="Start"
+                    Text="02:17"
+                    VerticalOptions="End" />
+                <Label
+                    Grid.Column="1"
+                    Margin="0,0,10,0"
+                    HorizontalOptions="End"
+                    Text="03:11"
+                    VerticalOptions="End" />
+            </Grid>
+            <Slider
+                Grid.Row="4"
+                Margin="10,0,10,0"
+                VerticalOptions="Start" />
+        </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*">
+            <Border Grid.ColumnSpan="5" Style="{x:StaticResource BottomBarBgStyle}" />
+            <ImageButton
+                Grid.Column="0"
+                Source="media_repeat.png"
+                Style="{x:StaticResource PlayerBarButtonStyle}" />
+            <ImageButton
+                Grid.Column="1"
+                Source="media_previous.png"
+                Style="{x:StaticResource PlayerBarButtonStyle}" />
+            <ImageButton
+                Grid.Column="2"
+                Source="media_play.png"
+                Style="{x:StaticResource PlayerBarButtonStyle}" />
+            <ImageButton
+                Grid.Column="3"
+                Source="media_next.png"
+                Style="{x:StaticResource PlayerBarButtonStyle}" />
+            <ImageButton
+                Grid.Column="4"
+                Source="media_playlist.png"
+                Style="{x:StaticResource PlayerBarButtonStyle}" />
+        </Grid>
+    </Grid>
 </ContentPage>
