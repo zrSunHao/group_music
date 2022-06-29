@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hao.GroupMusic.App.Pages.SettingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#1D7373</Color>
+            <Color x:Key="ButtonColor">#009999</Color>
+            <Color x:Key="SwitchOnColor">#FFCC33</Color>
+            <Style x:Key="TopBarContainerStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{x:StaticResource PrimaryColor}" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="TopBarNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="15,0,0,0" />
+                <Setter Property="Text" Value="设置" />
+            </Style>
+            <Style x:Key="TopBarIconStyle" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <Style x:Key="BoxContainerStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+            <Style x:Key="BoxBarNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="15,10,0,0" />
+                <Setter Property="TextColor" Value="Silver" />
+            </Style>
+            <x:Double x:Key="ItemHeight">45</x:Double>
+            <Style x:Key="ItemNameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <Style x:Key="ItemIconStyle" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="Margin" Value="15,0,0,0" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ItemSwitchStyle" TargetType="Switch">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="20" />
+                <Setter Property="Margin" Value="0,0,5,0" />
+                <Setter Property="OnColor" Value="{x:StaticResource SwitchOnColor}" />
+            </Style>
+            <Style x:Key="ItemTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="10,0,20,0" />
+                <Setter Property="TextColor" Value="Silver" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <Frame Style="{x:StaticResource TopBarContainerStyle}">
+                <Grid ColumnDefinitions="Auto,*">
+                    <ImageButton Source="page_setting.png" Style="{x:StaticResource TopBarIconStyle}" />
+                    <Label Grid.Column="1" Style="{x:StaticResource TopBarNameStyle}" />
+                </Grid>
+            </Frame>
+            <Grid Margin="0,15,0,0" RowDefinitions="30,Auto,Auto">
+                <Frame Grid.RowSpan="3" Style="{x:StaticResource BoxContainerStyle}" />
+                <Label Style="{x:StaticResource BoxBarNameStyle}" Text="网络设置" />
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_wifi.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="仅WIFI联网时使用" />
+                    <Switch Grid.Column="2" Style="{x:StaticResource ItemSwitchStyle}" />
+                </Grid>
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_server.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="后台服务" />
+                    <Label
+                        Grid.Column="2"
+                        Style="{x:StaticResource ItemTextStyle}"
+                        Text="https://service.my.com" />
+                </Grid>
+            </Grid>
+            <Grid Margin="0,15,0,0" RowDefinitions="30,Auto,Auto">
+                <Frame Grid.RowSpan="3" Style="{x:StaticResource BoxContainerStyle}" />
+                <Label Style="{x:StaticResource BoxBarNameStyle}" Text="存储设置" />
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_disk.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="边听边存" />
+                    <Switch Grid.Column="2" Style="{x:StaticResource ItemSwitchStyle}" />
+                </Grid>
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_folder.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="下载目录" />
+                    <Label
+                        Grid.Column="2"
+                        Style="{x:StaticResource ItemTextStyle}"
+                        Text="C:\Users\20806\Desktop\icons" />
+                </Grid>
+            </Grid>
+            <Grid Margin="0,15,0,0" RowDefinitions="30,Auto,Auto">
+                <Frame Grid.RowSpan="3" Style="{x:StaticResource BoxContainerStyle}" />
+                <Label Style="{x:StaticResource BoxBarNameStyle}" Text="清空缓存" />
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_clear_2.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="清空歌曲缓存" />
+                    <Label
+                        Grid.Column="2"
+                        Style="{x:StaticResource ItemTextStyle}"
+                        Text="208首歌 | 10GB" />
+                </Grid>
+                <Grid
+                    Grid.Row="2"
+                    ColumnDefinitions="Auto,*,Auto"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_clear_1.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="清空背景缓存" />
+                    <Label
+                        Grid.Column="2"
+                        Style="{x:StaticResource ItemTextStyle}"
+                        Text="110张图片 | 345MB" />
+                </Grid>
+            </Grid>
+            <Grid Margin="0,15,0,15" RowDefinitions="30,Auto,Auto">
+                <Frame Grid.RowSpan="3" Style="{x:StaticResource BoxContainerStyle}" />
+                <Label Style="{x:StaticResource BoxBarNameStyle}" Text="账号设置" />
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="Auto,*"
+                    HeightRequest="{x:StaticResource ItemHeight}">
+                    <ImageButton Source="setting_password.png" Style="{x:StaticResource ItemIconStyle}" />
+                    <Label
+                        Grid.Column="1"
+                        Style="{x:StaticResource ItemNameStyle}"
+                        Text="修改密码" />
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

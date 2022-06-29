@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Hao.GroupMusic.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Hao.GroupMusic.App"
+    xmlns:pages="clr-namespace:Hao.GroupMusic.App.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#1d7373</Color>
+            <Color x:Key="ButtonColor">#009999</Color>
+            <Style x:Key="HeaderContainerStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{x:StaticResource PrimaryColor}" />
+                <Setter Property="HeightRequest" Value="90" />
+            </Style>
+            <Style x:Key="UserButtonStyle" TargetType="ImageButton">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="Margin" Value="30,0,0,0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource ButtonColor}" />
+            </Style>
+            <Style x:Key="HeaderTextContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="20,0,0,0" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="20,0,0,0" />
+            </Style>
+            <Style x:Key="HeaderNameStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style x:Key="HeaderSubTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+            <Style x:Key="FooterContainerStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{x:StaticResource PrimaryColor}" />
+                <Setter Property="HeightRequest" Value="60" />
+            </Style>
+            <Style x:Key="LogoutButtonStyle" TargetType="ImageButton">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="WidthRequest" Value="35" />
+                <Setter Property="Margin" Value="15,0,0,0" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource ButtonColor}" />
+            </Style>
+            <Style x:Key="OffButtonStyle" TargetType="ImageButton">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="WidthRequest" Value="35" />
+                <Setter Property="Margin" Value="0,0,15,0" />
+                <Setter Property="Padding" Value="3" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource ButtonColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    <Shell.FlyoutHeader>
+        <Grid ColumnDefinitions="Auto,*" Style="{x:StaticResource HeaderContainerStyle}">
+            <ImageButton
+                Clicked="ImageButton_Clicked"
+                Source="page_player.png"
+                Style="{x:StaticResource UserButtonStyle}" />
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="5"
+                Style="{x:StaticResource HeaderTextContainerStyle}">
+                <Label Style="{x:StaticResource HeaderNameStyle}" Text="zhanghao" />
+                <Label
+                    Grid.Row="1"
+                    Style="{x:StaticResource HeaderSubTextStyle}"
+                    Text="已听208首歌" />
+            </Grid>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <Grid ColumnDefinitions="*,*" Style="{x:StaticResource FooterContainerStyle}">
+            <ImageButton Source="operate_logout.png" Style="{x:StaticResource LogoutButtonStyle}" />
+            <ImageButton
+                Grid.Column="1"
+                Source="operate_off.png"
+                Style="{x:StaticResource OffButtonStyle}" />
+        </Grid>
+    </Shell.FlyoutFooter>
+    <ShellContent
+        Title="歌曲播放"
+        ContentTemplate="{DataTemplate pages:PlayerPage}"
+        Icon="page_player.png"
+        Route="PlayerPage" />
+    <ShellContent
+        Title="播放队列"
+        ContentTemplate="{DataTemplate pages:PlayQueuePage}"
+        Icon="page_playqueue.png"
+        Route="PlayQueuePage" />
+    <ShellContent
+        Title="乐库"
+        ContentTemplate="{DataTemplate pages:LibraryPage}"
+        Icon="page_library.png"
+        Route="LibraryPage" />
+    <ShellContent
+        Title="歌曲查询"
+        ContentTemplate="{DataTemplate pages:SearchPage}"
+        Icon="page_search.png"
+        Route="SearchPage" />
+    <ShellContent
+        Title="我的歌单"
+        ContentTemplate="{DataTemplate pages:MyListPage}"
+        Icon="page_mylist.png"
+        Route="MyListPage" />
+    <ShellContent
+        Title="收藏的歌单"
+        ContentTemplate="{DataTemplate pages:MyCollectPage}"
+        Icon="page_collect.png"
+        Route="MyCollectPage" />
+    <ShellContent
+        Title="历史记录"
+        ContentTemplate="{DataTemplate pages:HistoryPage}"
+        Icon="page_history.png"
+        Route="HistoryPage" />
+    <ShellContent
+        Title="上传歌曲"
+        ContentTemplate="{DataTemplate pages:UploadPage}"
+        Icon="page_upload.png"
+        Route="UploadPage" />
+    <ShellContent
+        Title="下载队列"
+        ContentTemplate="{DataTemplate pages:DownloadPage}"
+        Icon="page_download.png"
+        Route="DownloadPage" />
+    <ShellContent
+        Title="本地缓存"
+        ContentTemplate="{DataTemplate pages:CachePage}"
+        Icon="page_cache.png"
+        Route="CachePage" />
+    <ShellContent
+        Title="设置"
+        ContentTemplate="{DataTemplate pages:SettingPage}"
+        Icon="page_setting.png"
+        Route="SettingPage" />
+
+</Shell>

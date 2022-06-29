@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hao.GroupMusic.App", "Hao.GroupMusic.App\Hao.GroupMusic.App.csproj", "{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hao.GroupMusic.App.Business", "Hao.GroupMusic.App.Business\Hao.GroupMusic.App.Business.csproj", "{82E69095-6635-435A-86FF-92B992424190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hao.GroupMusic.Common", "Hao.GroupMusic.Common\Hao.GroupMusic.Common.csproj", "{9BB088D6-290A-4777-909A-B171EC17E8AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD39C63-1FC3-48E2-9B4F-1420CF8BBA2B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{82E69095-6635-435A-86FF-92B992424190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E69095-6635-435A-86FF-92B992424190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E69095-6635-435A-86FF-92B992424190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E69095-6635-435A-86FF-92B992424190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BB088D6-290A-4777-909A-B171EC17E8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BB088D6-290A-4777-909A-B171EC17E8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BB088D6-290A-4777-909A-B171EC17E8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BB088D6-290A-4777-909A-B171EC17E8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal
