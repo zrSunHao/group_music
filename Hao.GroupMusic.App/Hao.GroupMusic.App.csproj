@@ -77,6 +77,7 @@
 	  <None Remove="Resources\Images\server_1.png" />
 	  <None Remove="Resources\Images\setting\setting_folder.png" />
 	  <None Remove="Resources\Images\wifi_1.png" />
+	  <None Remove="Resources\Raw\jingzhongbaoguo.lrc" />
 	</ItemGroup>
 
 	<ItemGroup>

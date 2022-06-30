@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="Hao.GroupMusic.App.Pages.PlayerPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Appearing="ContentPage_Appearing">
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Double x:Key="OperateContainerHeight">40</x:Double>
@@ -33,6 +34,20 @@
                 <Setter Property="CornerRadius" Value="25" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style
+                x:Key="PlayerSortButtonStyle"
+                BasedOn="{x:StaticResource PlayerBarButtonStyle}"
+                TargetType="ImageButton">
+                <Setter Property="Margin" Value="0,0,5,0" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+            <Style
+                x:Key="PlayerlistButtonStyle"
+                BasedOn="{x:StaticResource PlayerBarButtonStyle}"
+                TargetType="ImageButton">
+                <Setter Property="Margin" Value="5,0,0,0" />
+                <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
             <Style x:Key="OperateContainerStyle" TargetType="Border">
                 <Setter Property="Margin" Value="0" />
@@ -68,6 +83,22 @@
                 <Setter Property="Opacity" Value="0.3" />
                 <Setter Property="BackgroundColor" Value="Black" />
             </Style>
+            <Style x:Key="TimeStartTextStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <Style x:Key="TimeEndTextStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0,0,10,0" />
+            </Style>
+            <Style x:Key="TimeSliderStyle" TargetType="Slider">
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Margin" Value="10,0,10,0" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid RowDefinitions="*,80">
@@ -99,7 +130,23 @@
                     Source="media_download.png"
                     Style="{x:StaticResource PlayerBarButtonStyle}" />
             </Grid>
-            <Grid Grid.Row="1" />
+            <Grid Grid.Row="1">
+                <CollectionView x:Name="lycView" Margin="10,30,10,5">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="3">
+                                <Label
+                                    Margin="0,2,0,2"
+                                    FontAttributes="{Binding FontAtt}"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="{Binding Text}"
+                                    TextColor="{Binding TextColor}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
             <Grid Grid.Row="2" ColumnDefinitions="50,50,50,*,50,50">
                 <Border Grid.Column="0" Style="{x:StaticResource OperateContainerStyle}" />
                 <Image
@@ -131,29 +178,20 @@
                 Grid.Row="3"
                 Padding="0"
                 ColumnDefinitions="*,*">
-                <Label
-                    Margin="10,0,0,0"
-                    HorizontalOptions="Start"
-                    Text="02:17"
-                    VerticalOptions="End" />
+                <Label Style="{x:StaticResource TimeStartTextStyle}" Text="02:17" />
                 <Label
                     Grid.Column="1"
-                    Margin="0,0,10,0"
-                    HorizontalOptions="End"
-                    Text="03:11"
-                    VerticalOptions="End" />
+                    Style="{x:StaticResource TimeEndTextStyle}"
+                    Text="03:11" />
             </Grid>
-            <Slider
-                Grid.Row="4"
-                Margin="10,0,10,0"
-                VerticalOptions="Start" />
+            <Slider Grid.Row="4" Style="{x:StaticResource TimeSliderStyle}" />
         </Grid>
-        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*">
+        <Grid Grid.Row="1" ColumnDefinitions="*,60,60,60,*">
             <Border Grid.ColumnSpan="5" Style="{x:StaticResource BottomBarBgStyle}" />
             <ImageButton
                 Grid.Column="0"
                 Source="media_repeat.png"
-                Style="{x:StaticResource PlayerBarButtonStyle}" />
+                Style="{x:StaticResource PlayerSortButtonStyle}" />
             <ImageButton
                 Grid.Column="1"
                 Source="media_previous.png"
@@ -164,12 +202,13 @@
                 Style="{x:StaticResource PlayerBarButtonStyle}" />
             <ImageButton
                 Grid.Column="3"
+                Clicked="Button_Clicked"
                 Source="media_next.png"
                 Style="{x:StaticResource PlayerBarButtonStyle}" />
             <ImageButton
                 Grid.Column="4"
                 Source="media_playlist.png"
-                Style="{x:StaticResource PlayerBarButtonStyle}" />
+                Style="{x:StaticResource PlayerlistButtonStyle}" />
         </Grid>
     </Grid>
 </ContentPage>
