@@ -2,11 +2,97 @@
 <ContentPage
     x:Class="Hao.GroupMusic.App.Pages.LibraryPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="library"
-            VerticalOptions="Center" />
-    </StackLayout>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Hao.GroupMusic.App.Business.ViewModels;assembly=Hao.GroupMusic.App.Business">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ListBgStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+            <Style x:Key="CardBgStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="Black" />
+            </Style>
+            <Style x:Key="CardNameStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
+            <Style x:Key="ListNameStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+            <Style x:Key="ListViewStyle" TargetType="CollectionView">
+                <Setter Property="ItemsLayout">
+                    <Setter.Value>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Margin" Value="10,10,10,10" />
+                <Setter Property="ItemTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid
+                                Margin="5,5,5,15"
+                                HeightRequest="100"
+                                WidthRequest="100">
+                                <Image Aspect="AspectFill" Source="{Binding Value}" />
+                                <Frame Style="{x:StaticResource CardBgStyle}" />
+                                <Label Style="{x:StaticResource CardNameStyle}" Text="{Binding Key}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <Grid Margin="20,10,20,10" RowDefinitions="30,Auto">
+                <Frame Grid.RowSpan="2" Style="{x:StaticResource ListBgStyle}" />
+                <Label Style="{x:StaticResource ListNameStyle}" Text="推荐歌单" />
+                <CollectionView
+                    Grid.Row="1"
+                    ItemsSource="{Binding Path=BindingContext.RecommendList, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                    Style="{x:StaticResource ListViewStyle}" />
+            </Grid>
+            <Grid Margin="20,10,20,10" RowDefinitions="30,Auto">
+                <Frame Grid.RowSpan="2" Style="{x:StaticResource ListBgStyle}" />
+                <Label Style="{x:StaticResource ListNameStyle}" Text="分类歌单" />
+                <CollectionView
+                    Grid.Row="1"
+                    ItemsSource="{Binding Path=BindingContext.CategoryList, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                    Style="{x:StaticResource ListViewStyle}" />
+            </Grid>
+            <Grid Margin="20,10,20,10" RowDefinitions="30,Auto">
+                <Frame Grid.RowSpan="2" Style="{x:StaticResource ListBgStyle}" />
+                <Label Style="{x:StaticResource ListNameStyle}" Text="作者歌单" />
+                <CollectionView
+                    Grid.Row="1"
+                    ItemsSource="{Binding Path=BindingContext.AuthorList, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                    Style="{x:StaticResource ListViewStyle}" />
+            </Grid>
+            <Grid Margin="20,10,20,10" RowDefinitions="30,Auto">
+                <Frame Grid.RowSpan="2" Style="{x:StaticResource ListBgStyle}" />
+                <Label Style="{x:StaticResource ListNameStyle}" Text="用户分享歌单" />
+                <CollectionView
+                    Grid.Row="1"
+                    ItemsSource="{Binding Path=BindingContext.ShareList, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                    Style="{x:StaticResource ListViewStyle}" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

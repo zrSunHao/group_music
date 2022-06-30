@@ -54,6 +54,20 @@
 	  <None Remove="Resources\Images\bg_3.png" />
 	  <None Remove="Resources\Images\bg_4.png" />
 	  <None Remove="Resources\Images\bg_5.png" />
+	  <None Remove="Resources\Images\card_1.png" />
+	  <None Remove="Resources\Images\card_10.png" />
+	  <None Remove="Resources\Images\card_11.png" />
+	  <None Remove="Resources\Images\card_12.png" />
+	  <None Remove="Resources\Images\card_13.png" />
+	  <None Remove="Resources\Images\card_14.png" />
+	  <None Remove="Resources\Images\card_2.png" />
+	  <None Remove="Resources\Images\card_3.png" />
+	  <None Remove="Resources\Images\card_4.png" />
+	  <None Remove="Resources\Images\card_5.png" />
+	  <None Remove="Resources\Images\card_6.png" />
+	  <None Remove="Resources\Images\card_7.png" />
+	  <None Remove="Resources\Images\card_8.png" />
+	  <None Remove="Resources\Images\card_9.png" />
 	  <None Remove="Resources\Images\clear_1.png" />
 	  <None Remove="Resources\Images\clear_2.png" />
 	  <None Remove="Resources\Images\disk_1.png" />
@@ -74,6 +88,14 @@
 	  <None Remove="Resources\Images\operate_back.png" />
 	  <None Remove="Resources\Images\operate_favorite.png" />
 	  <None Remove="Resources\Images\password_1.png" />
+	  <None Remove="Resources\Images\people_1.png" />
+	  <None Remove="Resources\Images\people_2.png" />
+	  <None Remove="Resources\Images\people_3.png" />
+	  <None Remove="Resources\Images\people_4.png" />
+	  <None Remove="Resources\Images\people_5.png" />
+	  <None Remove="Resources\Images\people_6.png" />
+	  <None Remove="Resources\Images\people_7.png" />
+	  <None Remove="Resources\Images\people_8.png" />
 	  <None Remove="Resources\Images\server_1.png" />
 	  <None Remove="Resources\Images\setting\setting_folder.png" />
 	  <None Remove="Resources\Images\wifi_1.png" />
@@ -91,6 +113,20 @@
 	  <MauiImage Include="Resources\Images\background\bg_3.png" />
 	  <MauiImage Include="Resources\Images\background\bg_4.png" />
 	  <MauiImage Include="Resources\Images\background\bg_5.png" />
+	  <MauiImage Include="Resources\Images\card\card_1.png" />
+	  <MauiImage Include="Resources\Images\card\card_10.png" />
+	  <MauiImage Include="Resources\Images\card\card_11.png" />
+	  <MauiImage Include="Resources\Images\card\card_12.png" />
+	  <MauiImage Include="Resources\Images\card\card_13.png" />
+	  <MauiImage Include="Resources\Images\card\card_14.png" />
+	  <MauiImage Include="Resources\Images\card\card_2.png" />
+	  <MauiImage Include="Resources\Images\card\card_3.png" />
+	  <MauiImage Include="Resources\Images\card\card_4.png" />
+	  <MauiImage Include="Resources\Images\card\card_5.png" />
+	  <MauiImage Include="Resources\Images\card\card_6.png" />
+	  <MauiImage Include="Resources\Images\card\card_7.png" />
+	  <MauiImage Include="Resources\Images\card\card_8.png" />
+	  <MauiImage Include="Resources\Images\card\card_9.png" />
 	  <MauiImage Include="Resources\Images\media\media_download.png" />
 	  <MauiImage Include="Resources\Images\media\media_edit.png" />
 	  <MauiImage Include="Resources\Images\media\media_mute.png" />
@@ -120,6 +156,14 @@
 	  <MauiImage Include="Resources\Images\pageicon\page_search.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_setting.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_upload.png" />
+	  <MauiImage Include="Resources\Images\people\people_1.png" />
+	  <MauiImage Include="Resources\Images\people\people_2.png" />
+	  <MauiImage Include="Resources\Images\people\people_3.png" />
+	  <MauiImage Include="Resources\Images\people\people_4.png" />
+	  <MauiImage Include="Resources\Images\people\people_5.png" />
+	  <MauiImage Include="Resources\Images\people\people_6.png" />
+	  <MauiImage Include="Resources\Images\people\people_7.png" />
+	  <MauiImage Include="Resources\Images\people\people_8.png" />
 	  <MauiImage Include="Resources\Images\setting\setting_clear_1.png" />
 	  <MauiImage Include="Resources\Images\setting\setting_clear_2.png" />
 	  <MauiImage Include="Resources\Images\setting\setting_disk.png" />
@@ -173,6 +217,10 @@
 
 	<ItemGroup>
 	  <Folder Include="Views\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\.editorconfig" Link=".editorconfig" />
 	</ItemGroup>
 
 	<ItemGroup>
