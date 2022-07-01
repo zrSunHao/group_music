@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hao.GroupMusic.App.Pages.SongListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SongListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ListNameStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="150,*,80">
+        <Border
+            BackgroundColor="Black"
+            Opacity="0.3"
+            StrokeThickness="0" />
+        <Grid ColumnDefinitions="Auto,*">
+            <Grid
+                Margin="20,20,20,20"
+                HeightRequest="100"
+                WidthRequest="100">
+                <Image Aspect="AspectFill" Source="card_12.png" />
+                <Frame
+                    BackgroundColor="Black"
+                    CornerRadius="0"
+                    Opacity="0.2" />
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                Padding="10,20,20,0"
+                RowDefinitions="*,60">
+                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="15">
+                    <Label
+                        FontSize="18"
+                        Text="歌单标题"
+                        TextColor="WhiteSmoke"
+                        VerticalOptions="Center" />
+                    <ImageButton
+                        Grid.Column="1"
+                        Padding="{x:OnPlatform 8,
+                                               Android=3}"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        Source="operate_favorite.png"
+                        VerticalOptions="Center"
+                        WidthRequest="40" />
+                    <ImageButton
+                        Grid.Column="2"
+                        Padding="{x:OnPlatform 8,
+                                               Android=3}"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        Source="operate_back.png"
+                        VerticalOptions="Center"
+                        WidthRequest="40" />
+                </Grid>
+                <Grid
+                    Grid.Row="1"
+                    Padding="0,10,0,0"
+                    ColumnDefinitions="*,Auto">
+                    <Label Text="sunhao" TextColor="Silver" />
+                    <Label
+                        Grid.Column="1"
+                        Text="2022-06-24"
+                        TextColor="Silver" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Border
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            BackgroundColor="Black"
+            Opacity="0.3"
+            StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,0,0" />
+            </Border.StrokeShape>
+        </Border>
+        <Grid
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            RowDefinitions="60,*">
+            <Grid
+                Padding="15"
+                ColumnDefinitions="Auto,*,Auto,Auto"
+                ColumnSpacing="15">
+                <ImageButton
+                    Margin="0"
+                    Padding="{x:OnPlatform 5,
+                                           Android=2}"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    Source="operate_play.png"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+                <Label
+                    Grid.Column="1"
+                    Text="播放歌单"
+                    TextColor="Silver"
+                    VerticalOptions="Center" />
+                <ImageButton
+                    Grid.Column="2"
+                    Margin="0"
+                    Padding="{x:OnPlatform 5,
+                                           Android=2}"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    Source="operate_search.png"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+                <ImageButton
+                    Grid.Column="3"
+                    Margin="0"
+                    Padding="{x:OnPlatform 5,
+                                           Android=2}"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    Source="operate_sort.png"
+                    VerticalOptions="Center"
+                    WidthRequest="30" />
+            </Grid>
+            <CollectionView
+                Grid.Row="1"
+                Margin="15,0,15,15"
+                ItemsSource="{Binding Path=BindingContext.Songs, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                SelectionMode="{OnPlatform Single,
+                                           Android=None}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Margin="0,0,10,0"
+                            ColumnDefinitions="40,*,40,40,40"
+                            ColumnSpacing="5"
+                            HeightRequest="70">
+                            <Label
+                                HorizontalOptions="Center"
+                                Text="{Binding Index}"
+                                TextColor="Silver"
+                                VerticalOptions="Center" />
+                            <Grid Grid.Column="1" RowDefinitions="40,30">
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding Key}"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Text="{Binding Intro}"
+                                    TextColor="Silver"
+                                    VerticalOptions="Start" />
+                            </Grid>
+                            <ImageButton
+                                Grid.Column="2"
+                                Padding="{x:OnPlatform 8,
+                                                       Android=3}"
+                                CornerRadius="20"
+                                HeightRequest="40"
+                                Source="operate_add.png"
+                                VerticalOptions="Center"
+                                WidthRequest="40" />
+                            <ImageButton
+                                Grid.Column="3"
+                                Padding="{x:OnPlatform 8,
+                                                       Android=3}"
+                                CornerRadius="20"
+                                HeightRequest="40"
+                                Source="operate_favorite.png"
+                                VerticalOptions="Center"
+                                WidthRequest="40" />
+                            <ImageButton
+                                Grid.Column="4"
+                                Padding="{x:OnPlatform 8,
+                                                       Android=3}"
+                                CornerRadius="20"
+                                HeightRequest="40"
+                                Source="operate_more.png"
+                                VerticalOptions="Center"
+                                WidthRequest="40" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Frame
+            Grid.Row="2"
+            Margin="0"
+            BackgroundColor="Black"
+            CornerRadius="0"
+            Opacity="0.5" />
+        <Grid
+            Grid.Row="2"
+            Padding="15,0,15,0"
+            ColumnDefinitions="60,*,60,60"
+            ColumnSpacing="15">
+            <ImageButton
+                Padding="{x:OnPlatform 10,
+                                       Android=5}"
+                CornerRadius="25"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Source="page_playqueue.png"
+                WidthRequest="50" />
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="3*,2*"
+                RowSpacing="10">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="突然的自我"
+                    TextColor="WhiteSmoke"
+                    VerticalOptions="End" />
+                <Label
+                    Grid.Row="1"
+                    FontSize="12"
+                    Text="伍佰"
+                    TextColor="Silver"
+                    VerticalOptions="Start" />
+            </Grid>
+            <ImageButton
+                Grid.Column="2"
+                Padding="{x:OnPlatform 13,
+                                       Android=5}"
+                CornerRadius="25"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Source="media_play.png"
+                WidthRequest="50" />
+            <ImageButton
+                Grid.Column="3"
+                Padding="{x:OnPlatform 13,
+                                       Android=5}"
+                CornerRadius="25"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Source="media_playlist.png"
+                WidthRequest="50" />
+        </Grid>
+    </Grid>
+</ContentPage>

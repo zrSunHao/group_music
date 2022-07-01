@@ -95,6 +95,11 @@
         </Grid>
     </Shell.FlyoutFooter>
     <ShellContent
+        Title="SongListPage"
+        ContentTemplate="{DataTemplate pages:SongListPage}"
+        Icon="page_player.png"
+        Route="SongListPage" />
+    <ShellContent
         Title="歌曲播放"
         ContentTemplate="{DataTemplate pages:PlayerPage}"
         Icon="page_player.png"

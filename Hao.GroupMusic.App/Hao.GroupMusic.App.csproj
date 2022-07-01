@@ -48,61 +48,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\background\bg_0.png" />
-	  <None Remove="Resources\Images\bg_1.png" />
-	  <None Remove="Resources\Images\bg_2.png" />
-	  <None Remove="Resources\Images\bg_3.png" />
-	  <None Remove="Resources\Images\bg_4.png" />
-	  <None Remove="Resources\Images\bg_5.png" />
-	  <None Remove="Resources\Images\card_1.png" />
-	  <None Remove="Resources\Images\card_10.png" />
-	  <None Remove="Resources\Images\card_11.png" />
-	  <None Remove="Resources\Images\card_12.png" />
-	  <None Remove="Resources\Images\card_13.png" />
-	  <None Remove="Resources\Images\card_14.png" />
-	  <None Remove="Resources\Images\card_2.png" />
-	  <None Remove="Resources\Images\card_3.png" />
-	  <None Remove="Resources\Images\card_4.png" />
-	  <None Remove="Resources\Images\card_5.png" />
-	  <None Remove="Resources\Images\card_6.png" />
-	  <None Remove="Resources\Images\card_7.png" />
-	  <None Remove="Resources\Images\card_8.png" />
-	  <None Remove="Resources\Images\card_9.png" />
-	  <None Remove="Resources\Images\clear_1.png" />
-	  <None Remove="Resources\Images\clear_2.png" />
-	  <None Remove="Resources\Images\disk_1.png" />
-	  <None Remove="Resources\Images\media_download.png" />
-	  <None Remove="Resources\Images\media_edit.png" />
-	  <None Remove="Resources\Images\media_mute.png" />
-	  <None Remove="Resources\Images\media_next.png" />
-	  <None Remove="Resources\Images\media_play.png" />
-	  <None Remove="Resources\Images\media_playlist.png" />
-	  <None Remove="Resources\Images\media_previous.png" />
-	  <None Remove="Resources\Images\media_repeat.png" />
-	  <None Remove="Resources\Images\media_repeatone.png" />
-	  <None Remove="Resources\Images\media_shuffle.png" />
-	  <None Remove="Resources\Images\media_stop.png" />
-	  <None Remove="Resources\Images\media_volum.png" />
-	  <None Remove="Resources\Images\media_volum_down.png" />
-	  <None Remove="Resources\Images\media_volum_up.png" />
-	  <None Remove="Resources\Images\operate_back.png" />
-	  <None Remove="Resources\Images\operate_favorite.png" />
-	  <None Remove="Resources\Images\password_1.png" />
-	  <None Remove="Resources\Images\people_1.png" />
-	  <None Remove="Resources\Images\people_2.png" />
-	  <None Remove="Resources\Images\people_3.png" />
-	  <None Remove="Resources\Images\people_4.png" />
-	  <None Remove="Resources\Images\people_5.png" />
-	  <None Remove="Resources\Images\people_6.png" />
-	  <None Remove="Resources\Images\people_7.png" />
-	  <None Remove="Resources\Images\people_8.png" />
-	  <None Remove="Resources\Images\server_1.png" />
-	  <None Remove="Resources\Images\setting\setting_folder.png" />
-	  <None Remove="Resources\Images\wifi_1.png" />
-	  <None Remove="Resources\Raw\jingzhongbaoguo.lrc" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\Hao.GroupMusic.App.Business\Hao.GroupMusic.App.Business.csproj" />
 	</ItemGroup>
 
@@ -141,10 +86,15 @@
 	  <MauiImage Include="Resources\Images\media\media_volum.png" />
 	  <MauiImage Include="Resources\Images\media\media_volum_down.png" />
 	  <MauiImage Include="Resources\Images\media\media_volum_up.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_add.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_back.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_favorite.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_logout.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_more.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_off.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_play.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_search.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_sort.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_library.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_cache.png" />
 	  <MauiImage Include="Resources\Images\pageicon\page_download.png" />
@@ -208,6 +158,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SettingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SongListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\UploadPage.xaml">
