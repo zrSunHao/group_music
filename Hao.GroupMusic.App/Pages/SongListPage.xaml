@@ -6,32 +6,156 @@
     Title="SongListPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="ListNameStyle" TargetType="Label">
+            <Style x:Key="TopBgStyle" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="StrokeThickness" Value="0" />
+            </Style>
+            <Style x:Key="TopImgContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="20,20,10,20" />
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="100" />
+            </Style>
+            <Style x:Key="TopImageMaskStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="IsVisible" Value="{x:OnPlatform true, Android=false}" />
+            </Style>
+            <Style x:Key="TopAuthorStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Silver" />
+            </Style>
+            <Style x:Key="TopDateStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Silver" />
+            </Style>
+            <Style x:Key="ListContainerStyle" TargetType="Border">
+                <Setter Property="Margin" Value="0,15,0,0" />
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Opacity" Value="0.3" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="StrokeShape">
+                    <Setter.Value>
+                        <RoundRectangle CornerRadius="15,15,0,0" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ListTopNameStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ListTopButtonStyle" TargetType="ImageButton">
+                <Setter Property="Padding" Value="{x:OnPlatform 5, Android=2}" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ListItemContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="0,0,8,0" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="ColumnSpacing" Value="{OnPlatform 15, Android=5}" />
+            </Style>
+            <Style x:Key="ListItemButtonStyle" TargetType="ImageButton">
+                <Setter Property="Padding" Value="{x:OnPlatform 8, Android=3}" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ListItemIndexStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ListItemNameStyle" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ListItemAuthorStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="ListViewStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="15,0,10,10" />
+                <Setter Property="SelectionMode" Value="{OnPlatform Single, Android=None}" />
+                <Setter Property="ItemTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="40,*,40,40,40" Style="{x:StaticResource ListItemContainerStyle}">
+                                <Label Style="{x:StaticResource ListItemIndexStyle}" Text="{Binding Index}" />
+                                <Grid Grid.Column="1" RowDefinitions="40,30">
+                                    <Label Style="{x:StaticResource ListItemNameStyle}" Text="{Binding Key}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{x:StaticResource ListItemAuthorStyle}"
+                                        Text="{Binding Intro}" />
+                                </Grid>
+                                <ImageButton
+                                    Grid.Column="2"
+                                    Source="operate_add.png"
+                                    Style="{x:StaticResource ListItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="3"
+                                    Source="operate_favorite.png"
+                                    Style="{x:StaticResource ListItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="4"
+                                    Source="operate_more.png"
+                                    Style="{x:StaticResource ListItemButtonStyle}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="BottomBgStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#1D7373" />
+                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+            <Style x:Key="MediaIconStyle" TargetType="ImageButton">
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="MediaButtonStyle" TargetType="ImageButton">
+                <Setter Property="Padding" Value="{x:OnPlatform 13, Android=5}" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="MediaNameStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="WhiteSmoke" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+            <Style x:Key="MediaAuthorStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="Silver" />
+                <Setter Property="VerticalOptions" Value="Start" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid RowDefinitions="150,*,80">
-        <Border
-            BackgroundColor="Black"
-            Opacity="0.3"
-            StrokeThickness="0" />
+        <Border Style="{x:StaticResource TopBgStyle}" />
         <Grid ColumnDefinitions="Auto,*">
-            <Grid
-                Margin="20,20,20,20"
-                HeightRequest="100"
-                WidthRequest="100">
+            <Grid Style="{x:StaticResource TopImgContainerStyle}">
                 <Image Aspect="AspectFill" Source="card_12.png" />
-                <Frame
-                    BackgroundColor="Black"
-                    CornerRadius="0"
-                    Opacity="0.2" />
+                <!--<Frame IsVisible=" True" Style="{x:StaticResource TopImageMaskStyle}" />-->
             </Grid>
             <Grid
                 Grid.Column="1"
-                Padding="10,20,20,0"
+                Padding="5,20,20,0"
                 RowDefinitions="*,60">
-                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="15">
+                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="{OnPlatform 15, Android=2}">
                     <Label
                         FontSize="18"
                         Text="歌单标题"
@@ -58,26 +182,17 @@
                 </Grid>
                 <Grid
                     Grid.Row="1"
-                    Padding="0,10,0,0"
+                    Padding="0,5,0,0"
                     ColumnDefinitions="*,Auto">
-                    <Label Text="sunhao" TextColor="Silver" />
+                    <Label Style="{x:StaticResource TopAuthorStyle}" Text="sunhao" />
                     <Label
                         Grid.Column="1"
-                        Text="2022-06-24"
-                        TextColor="Silver" />
+                        Style="{x:StaticResource TopDateStyle}"
+                        Text="2022-06-24" />
                 </Grid>
             </Grid>
         </Grid>
-        <Border
-            Grid.Row="1"
-            Margin="0,20,0,0"
-            BackgroundColor="Black"
-            Opacity="0.3"
-            StrokeThickness="0">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="15,15,0,0" />
-            </Border.StrokeShape>
-        </Border>
+        <Border Grid.Row="1" Style="{x:StaticResource ListContainerStyle}" />
         <Grid
             Grid.Row="1"
             Margin="0,20,0,0"
@@ -86,157 +201,50 @@
                 Padding="15"
                 ColumnDefinitions="Auto,*,Auto,Auto"
                 ColumnSpacing="15">
-                <ImageButton
-                    Margin="0"
-                    Padding="{x:OnPlatform 5,
-                                           Android=2}"
-                    CornerRadius="15"
-                    HeightRequest="30"
-                    Source="operate_play.png"
-                    VerticalOptions="Center"
-                    WidthRequest="30" />
+                <ImageButton Source="operate_play.png" Style="{x:StaticResource ListTopButtonStyle}" />
                 <Label
                     Grid.Column="1"
-                    Text="播放歌单"
-                    TextColor="Silver"
-                    VerticalOptions="Center" />
+                    Style="{x:StaticResource ListTopNameStyle}"
+                    Text="播放歌单" />
                 <ImageButton
                     Grid.Column="2"
-                    Margin="0"
-                    Padding="{x:OnPlatform 5,
-                                           Android=2}"
-                    CornerRadius="15"
-                    HeightRequest="30"
                     Source="operate_search.png"
-                    VerticalOptions="Center"
-                    WidthRequest="30" />
+                    Style="{x:StaticResource ListTopButtonStyle}" />
                 <ImageButton
                     Grid.Column="3"
-                    Margin="0"
-                    Padding="{x:OnPlatform 5,
-                                           Android=2}"
-                    CornerRadius="15"
-                    HeightRequest="30"
                     Source="operate_sort.png"
-                    VerticalOptions="Center"
-                    WidthRequest="30" />
+                    Style="{x:StaticResource ListTopButtonStyle}" />
             </Grid>
             <CollectionView
                 Grid.Row="1"
-                Margin="15,0,15,15"
                 ItemsSource="{Binding Path=BindingContext.Songs, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                SelectionMode="{OnPlatform Single,
-                                           Android=None}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid
-                            Margin="0,0,10,0"
-                            ColumnDefinitions="40,*,40,40,40"
-                            ColumnSpacing="5"
-                            HeightRequest="70">
-                            <Label
-                                HorizontalOptions="Center"
-                                Text="{Binding Index}"
-                                TextColor="Silver"
-                                VerticalOptions="Center" />
-                            <Grid Grid.Column="1" RowDefinitions="40,30">
-                                <Label
-                                    FontAttributes="Bold"
-                                    Text="{Binding Key}"
-                                    VerticalOptions="Center" />
-                                <Label
-                                    Grid.Row="1"
-                                    FontSize="12"
-                                    Text="{Binding Intro}"
-                                    TextColor="Silver"
-                                    VerticalOptions="Start" />
-                            </Grid>
-                            <ImageButton
-                                Grid.Column="2"
-                                Padding="{x:OnPlatform 8,
-                                                       Android=3}"
-                                CornerRadius="20"
-                                HeightRequest="40"
-                                Source="operate_add.png"
-                                VerticalOptions="Center"
-                                WidthRequest="40" />
-                            <ImageButton
-                                Grid.Column="3"
-                                Padding="{x:OnPlatform 8,
-                                                       Android=3}"
-                                CornerRadius="20"
-                                HeightRequest="40"
-                                Source="operate_favorite.png"
-                                VerticalOptions="Center"
-                                WidthRequest="40" />
-                            <ImageButton
-                                Grid.Column="4"
-                                Padding="{x:OnPlatform 8,
-                                                       Android=3}"
-                                CornerRadius="20"
-                                HeightRequest="40"
-                                Source="operate_more.png"
-                                VerticalOptions="Center"
-                                WidthRequest="40" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                Style="{x:StaticResource ListViewStyle}" />
         </Grid>
-        <Frame
-            Grid.Row="2"
-            Margin="0"
-            BackgroundColor="Black"
-            CornerRadius="0"
-            Opacity="0.5" />
+        <Frame Grid.Row="2" Style="{x:StaticResource BottomBgStyle}" />
         <Grid
             Grid.Row="2"
             Padding="15,0,15,0"
             ColumnDefinitions="60,*,60,60"
             ColumnSpacing="15">
-            <ImageButton
-                Padding="{x:OnPlatform 10,
-                                       Android=5}"
-                CornerRadius="25"
-                HeightRequest="50"
-                HorizontalOptions="Center"
-                Source="page_playqueue.png"
-                WidthRequest="50" />
+            <ImageButton Source="page_playqueue.png" Style="{x:StaticResource MediaIconStyle}" />
             <Grid
                 Grid.Column="1"
                 RowDefinitions="3*,2*"
                 RowSpacing="10">
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="16"
-                    Text="突然的自我"
-                    TextColor="WhiteSmoke"
-                    VerticalOptions="End" />
+                <Label Style="{x:StaticResource MediaNameStyle}" Text="突然的自我" />
                 <Label
                     Grid.Row="1"
-                    FontSize="12"
-                    Text="伍佰"
-                    TextColor="Silver"
-                    VerticalOptions="Start" />
+                    Style="{x:StaticResource MediaAuthorStyle}"
+                    Text="伍佰" />
             </Grid>
             <ImageButton
                 Grid.Column="2"
-                Padding="{x:OnPlatform 13,
-                                       Android=5}"
-                CornerRadius="25"
-                HeightRequest="50"
-                HorizontalOptions="Center"
                 Source="media_play.png"
-                WidthRequest="50" />
+                Style="{x:StaticResource MediaButtonStyle}" />
             <ImageButton
                 Grid.Column="3"
-                Padding="{x:OnPlatform 13,
-                                       Android=5}"
-                CornerRadius="25"
-                HeightRequest="50"
-                HorizontalOptions="Center"
                 Source="media_playlist.png"
-                WidthRequest="50" />
+                Style="{x:StaticResource MediaButtonStyle}" />
         </Grid>
     </Grid>
 </ContentPage>
