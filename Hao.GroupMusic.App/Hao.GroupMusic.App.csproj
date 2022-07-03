@@ -88,6 +88,7 @@
 	  <MauiImage Include="Resources\Images\media\media_volum_up.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_add.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_back.png" />
+	  <MauiImage Include="Resources\Images\operate\operate_delete.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_favorite.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_logout.png" />
 	  <MauiImage Include="Resources\Images\operate\operate_more.png" />
@@ -164,6 +165,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\UploadPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Styles\SongListStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

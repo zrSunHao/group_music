@@ -3,10 +3,112 @@
     x:Class="Hao.GroupMusic.App.Pages.CachePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Cache"
-            VerticalOptions="Center" />
-    </StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/SongListStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="ListViewStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="15,0,10,10" />
+                <Setter Property="SelectionMode" Value="{OnPlatform Single, Android=None}" />
+                <Setter Property="ItemTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="40,*,40,40,40" Style="{x:StaticResource SongItemContainerStyle}">
+                                <Label Style="{x:StaticResource SongItemIndexStyle}" Text="{Binding Index}" />
+                                <Grid Grid.Column="1" RowDefinitions="40,30">
+                                    <Label Style="{x:StaticResource SongItemNameStyle}" Text="{Binding Key}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{x:StaticResource SongItemAuthorStyle}"
+                                        Text="{Binding Intro}" />
+                                </Grid>
+                                <ImageButton
+                                    Grid.Column="2"
+                                    Source="operate_add.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="3"
+                                    Source="operate_favorite.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="4"
+                                    Source="operate_more.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="150,*,80">
+        <Border Style="{x:StaticResource TopBgStyle}" />
+        <Grid ColumnDefinitions="Auto,*">
+            <Grid Style="{x:StaticResource TopImgContainerStyle}">
+                <Image Aspect="AspectFill" Source="card_12.png" />
+                <!--<Frame IsVisible=" True" Style="{x:StaticResource TopImageMaskStyle}" />-->
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                Padding="5,20,20,0"
+                RowDefinitions="*,60">
+                <Label Style="{x:StaticResource TopTitleStyle}" Text="本地缓存" />
+                <Label
+                    Grid.Row="1"
+                    Style="{x:StaticResource TopIntroStyle}"
+                    Text="收藏50首 | 共111首歌" />
+            </Grid>
+        </Grid>
+        <Border Grid.Row="1" Style="{x:StaticResource SongListBgStyle}" />
+        <Grid
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            RowDefinitions="60,*">
+            <Grid ColumnDefinitions="Auto,*,Auto,Auto" Style="{x:StaticResource SongListTopContainerStyle}">
+                <ImageButton Source="operate_play.png" Style="{x:StaticResource SongListTopButtonStyle}" />
+                <Label
+                    Grid.Column="1"
+                    Style="{x:StaticResource SongListTopNameStyle}"
+                    Text="播放歌单" />
+                <ImageButton
+                    Grid.Column="2"
+                    Source="operate_search.png"
+                    Style="{x:StaticResource ListTopButtonStyle}" />
+                <ImageButton
+                    Grid.Column="3"
+                    Source="operate_sort.png"
+                    Style="{x:StaticResource ListTopButtonStyle}" />
+            </Grid>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Path=BindingContext.Songs, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                Style="{x:StaticResource ListViewStyle}" />
+        </Grid>
+        <Frame Grid.Row="2" Style="{x:StaticResource MediaBgStyle}" />
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="60,*,60,60"
+            Style="{x:StaticResource MediaContainerStyle}">
+            <ImageButton Source="page_playqueue.png" Style="{x:StaticResource MediaIconStyle}" />
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="3*,2*"
+                RowSpacing="10">
+                <Label Style="{x:StaticResource MediaNameStyle}" Text="突然的自我" />
+                <Label
+                    Grid.Row="1"
+                    Style="{x:StaticResource MediaAuthorStyle}"
+                    Text="伍佰" />
+            </Grid>
+            <ImageButton
+                Grid.Column="2"
+                Source="media_play.png"
+                Style="{x:StaticResource MediaButtonStyle}" />
+            <ImageButton
+                Grid.Column="3"
+                Source="media_playlist.png"
+                Style="{x:StaticResource MediaButtonStyle}" />
+        </Grid>
+    </Grid>
 </ContentPage>
