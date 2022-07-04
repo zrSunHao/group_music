@@ -37,7 +37,7 @@
                                     Style="{x:StaticResource SongItemButtonStyle}" />
                                 <ImageButton
                                     Grid.Column="4"
-                                    Source="operate_delete.png"
+                                    Source="operate_more.png"
                                     Style="{x:StaticResource SongItemButtonStyle}" />
                             </Grid>
                         </DataTemplate>

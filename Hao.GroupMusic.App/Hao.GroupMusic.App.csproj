@@ -167,6 +167,9 @@
 	  <MauiXaml Update="Pages\UploadPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Styles\CollectListStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Styles\SongListStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

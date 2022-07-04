@@ -3,10 +3,117 @@
     x:Class="Hao.GroupMusic.App.Pages.SearchPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="search"
-            VerticalOptions="Center" />
-    </StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/SongListStyles.xaml" />
+                <ResourceDictionary Source="/Styles/CollectListStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="ListViewStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="15,0,10,10" />
+                <Setter Property="SelectionMode" Value="{OnPlatform Single, Android=None}" />
+                <Setter Property="ItemTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="40,*,40,40,40" Style="{x:StaticResource SongItemContainerStyle}">
+                                <Label Style="{x:StaticResource SongItemIndexStyle}" Text="{Binding Index}" />
+                                <Grid Grid.Column="1" RowDefinitions="40,30">
+                                    <Label Style="{x:StaticResource SongItemNameStyle}" Text="{Binding Key}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{x:StaticResource SongItemAuthorStyle}"
+                                        Text="{Binding Intro}" />
+                                </Grid>
+                                <ImageButton
+                                    Grid.Column="2"
+                                    Source="operate_add.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="3"
+                                    Source="operate_favorite.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                                <ImageButton
+                                    Grid.Column="4"
+                                    Source="operate_more.png"
+                                    Style="{x:StaticResource SongItemButtonStyle}" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="SearchBgStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="Opacity" Value="0.2" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="60,180,*,80">
+        <Grid Margin="15,10,10,5">
+            <Frame Style="{x:StaticResource SearchBgStyle}" />
+            <SearchBar Placeholder="搜索 ···" Style="{x:StaticResource SearchBarStyle}" />
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Margin="15,10,15,10"
+            RowDefinitions="30,Auto">
+            <Frame
+                Grid.RowSpan="2"
+                Style="{x:StaticResource CollectListBgStyle}"
+                VerticalOptions="FillAndExpand" />
+            <Label Style="{x:StaticResource CollectListNameStyle}" Text="搜索到的歌单" />
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Path=BindingContext.CollectList, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                Style="{x:StaticResource CollectListViewStyle}" />
+        </Grid>
+        <Border Grid.Row="2" Style="{x:StaticResource SongListBgStyle}" />
+        <Grid
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            RowDefinitions="60,*">
+            <Grid ColumnDefinitions="Auto,*,Auto" Style="{x:StaticResource SongListTopContainerStyle}">
+                <Label
+                    Grid.Column="1"
+                    Style="{x:StaticResource SongListTopNameStyle}"
+                    Text="搜索到的歌曲" />
+                <ImageButton
+                    Grid.Column="3"
+                    Source="operate_sort.png"
+                    Style="{x:StaticResource SongListTopButtonStyle}" />
+            </Grid>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding Path=BindingContext.Songs, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                Style="{x:StaticResource ListViewStyle}" />
+        </Grid>
+        <Frame Grid.Row="3" Style="{x:StaticResource MediaBgStyle}" />
+        <Grid
+            Grid.Row="3"
+            ColumnDefinitions="60,*,60,60"
+            Style="{x:StaticResource MediaContainerStyle}">
+            <ImageButton Source="page_playqueue.png" Style="{x:StaticResource MediaIconStyle}" />
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="3*,2*"
+                RowSpacing="10">
+                <Label Style="{x:StaticResource MediaNameStyle}" Text="突然的自我" />
+                <Label
+                    Grid.Row="1"
+                    Style="{x:StaticResource MediaAuthorStyle}"
+                    Text="伍佰" />
+            </Grid>
+            <ImageButton
+                Grid.Column="2"
+                Source="media_play.png"
+                Style="{x:StaticResource MediaButtonStyle}" />
+            <ImageButton
+                Grid.Column="3"
+                Source="media_playlist.png"
+                Style="{x:StaticResource MediaButtonStyle}" />
+        </Grid>
+    </Grid>
 </ContentPage>
